@@ -69,6 +69,9 @@ struct p0f_api_response {
 
   u8  language[P0F_STR_MAX + 1];        /* Language                           */
 
+  u8 tcp_sig_syn[P0F_STR_MAX * 2];
+  u8 tcp_sig_synack[P0F_STR_MAX * 2];
+
 } __attribute__((packed));
 
 #ifdef _FROM_P0F

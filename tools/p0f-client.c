@@ -160,6 +160,18 @@ int main(int argc, char** argv) {
 
   SAYF("Total flows   = %u\n", r.total_conn);
 
+  if (!r.tcp_sig_syn[0]) {
+    SAYF("Last syn      = ???\n");
+  } else {
+    SAYF("Last syn      = %s\n", r.tcp_sig_syn);
+  }
+
+  if (!r.tcp_sig_synack[0]) {
+    SAYF("Last synack   = ???\n");
+  } else {
+    SAYF("Last synack   = %s\n", r.tcp_sig_synack);
+  }
+
   if (!r.os_name[0])
     SAYF("Detected OS   = ???\n");
   else

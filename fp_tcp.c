@@ -1207,7 +1207,10 @@ struct tcp_sig* fingerprint_tcp(u8 to_srv, struct packet_data* pk,
 
   add_observation_field("params", dump_flags(pk, sig));
 
-  add_observation_field("raw_sig", dump_sig(pk, sig, f->syn_mss));
+//  sig->dump = dump_sig(pk, sig, f->syn_mss);
+  u8* bu = dump_sig(pk, sig, f->syn_mss);
+  strncpy((char*)sig->dump, (char*)bu, 62);
+  add_observation_field("raw_sig", bu);
 
   if (pk->tcp_type == TCP_SYN) f->syn_mss = pk->mss;
 

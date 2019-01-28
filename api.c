@@ -68,6 +68,14 @@ void handle_query(struct p0f_api_query* q, struct p0f_api_response* r) {
   r->last_seen  = h->last_seen;
   r->total_conn = h->total_conn;
 
+  if (h->last_syn && h->last_syn->dump) {
+    strncpy((char*)r->tcp_sig_syn, (char*)h->last_syn->dump, 62);
+  }
+
+  if (h->last_synack && h->last_synack->dump) {
+    strncpy((char*)r->tcp_sig_synack, (char*)h->last_synack->dump, 62);
+  }
+
   if (h->last_name_id != -1) {
 
     strncpy((char*)r->os_name, (char*)fp_os_names[h->last_name_id],

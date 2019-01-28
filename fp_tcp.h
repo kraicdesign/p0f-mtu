@@ -43,7 +43,7 @@ struct tcp_sig {
   struct tcp_sig_record* matched;       /* NULL = no match                    */
   u8  fuzzy;                            /* Approximate match?                 */
   u8  dist;                             /* Distance                           */
-
+  char dump[62];
 };
 
 /* Methods for matching window size in tcp_sig: */
