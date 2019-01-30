@@ -103,11 +103,10 @@ echo -n "[*] Checking for a sane build environment... "
 
 if ls -ld ./ | grep -q '^d.......w'; then
 
-  echo "FAIL (bad permissions)"
+  echo "WARNING (bad permissions)"
   echo
   echo "Duuude, don't build stuff in world-writable directories."
   echo
-  exit 1
 
 fi
 
